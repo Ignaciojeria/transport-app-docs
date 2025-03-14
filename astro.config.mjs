@@ -6,6 +6,7 @@ import svelte from "@astrojs/svelte";
 
 // https://astro.build/config
 export default defineConfig({
+  base: "/transport-app-docs/",
   integrations: [starlight({
     title: 'Transport APP',
     social: {
