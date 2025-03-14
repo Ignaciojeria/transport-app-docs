@@ -1,0 +1,27 @@
+---
+import { GET } from '../api/post_organization'
+let response = await (await GET(Astro)).json()
+---
+<!--  
+<h1>{response.data}!</h1>
+-->
+
+<script>
+   // console.log('¡Bienvenida, consola del navegador!');
+</script>
+
+<button class="btn btn-wide" onclick="my_modal_1.showModal()">CREAR ORGANIZACIÓN</button>
+<dialog id="my_modal_1" class="modal">
+  <div class="modal-box">
+    <h3 class="font-bold text-lg">NUEVA ORGANIZACIÓN</h3>
+    <p class="py-4">Ingresa el nombre de la organización y presiona "Crear" para proceder.</p>
+    <form  onsubmit="event.preventDefault();">
+      <input type="text" placeholder="Nombre" required class="input input-bordered w-full max-w-xs" />
+      <button class="btn btn-primary my-4" >CREAR ORGANIZACIÓN</button>
+      <div class="modal-action">
+        <button type="button" class="btn" onclick="my_modal_1.close()">Cerrar</button>
+      </div>
+    </form>
+  </div>
+</dialog>
+

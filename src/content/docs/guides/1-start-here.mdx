@@ -1,0 +1,32 @@
+---
+title: "Crear Organización"
+description: "Crear una nueva organización."
+---
+
+Interactúe con su sistema de gestión de transporte creando una nueva organización. Al acceder a este endpoint, se generará automáticamente una API Key única que deberá mantener resguardada y que facilitará todas las operaciones del sistema.
+
+
+import NewOrganization from '../../../components/NewOrganization.svelte';
+
+<NewOrganization client:load/>
+
+## 📨 HTTP Request
+
+```sh
+curl --location 'https://api.ngs.global:443/v1/nats/subjects/organization.request' \
+--header 'accept: application/json' \
+--header 'authorization: nhg_2atLsmWBRcK7z3Mtu_DmLVjm3aHiYcfFQHoLrxWGhLtTZqhoPLfRN3rKmsmSWe' \
+--header 'content-type: application/json' \
+--data '{
+    "name": "nombre-de-tu-organización"
+}'
+```
+
+## 📬 HTTP Decoded Response Data
+El siguiente cuadro incluye el campo `responseBody.data` decodificado de base64. El atributo `name` corresponde al nombre de la organización creada, y el atributo `key` es la API key generada.
+```sh
+{
+    "name": "test-organization",
+    "key": "eyJuYW1lIjoidGVzdC1vcmdhbml6YXRpb24iLCJrZXkiOiI2NzA0OWMxMS04ZTk3LTQzMGItODcxZC1iYjVmOGEzZDc4NjI0YTU4Njc0YS02OGRiLTQ4ZjUtYmJjYy1iM2JlNjJjNTU0YTQwOTc0MGYyMy0yNWIxLTRhMzUtODVlMC01ODg2NGYwZmUyNThiNDk1M2YyYi0xMTE2LTQwOTktYWQ2OS1kNmU4MzE2MjU1MDZmZjg3MDc1OS1jNDQzLTRiZWQtODFlOS01ZjhiMTg1NzJhMjYifQ=="
+}
+```
